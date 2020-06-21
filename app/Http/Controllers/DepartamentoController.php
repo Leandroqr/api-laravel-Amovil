@@ -15,7 +15,7 @@ class DepartamentoController extends Controller
     public function index()
     {
         // Traemos todos los departamentos
-        $departamentos = Departamento::get();
+        $departamentos = Departamento::orderBy('nombre_d', 'asc')->get();
         return response()->json($departamentos, 200);
     }
 

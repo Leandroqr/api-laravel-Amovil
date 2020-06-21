@@ -14,10 +14,11 @@ class CreateMunicipiosTable extends Migration
     public function up()
     {
         Schema::create('municipios', function (Blueprint $table) {
-            $table->string('codigo_dane_m', 20)->primary();
+            $table->id();
+            $table->string('codigo_dane_m', 20);
             $table->string('nombre_m');
-            $table->string('departamento');
-            $table->foreign('departamento')->references('codigo_dane_d')->on('departamentos');
+            $table->bigInteger('departamento_id')->unsigned();
+            $table->foreign('departamento_id')->references('id')->on('departamentos');
             $table->timestamps();
         });
     }
